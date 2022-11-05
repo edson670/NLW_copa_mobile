@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { NativeBaseProvider, Text, Center} from "native-base";
+import { NativeBaseProvider, StatusBar } from "native-base";
 import { Loading } from './src/components/Loading';
 import { SignIn } from './src/screens/SignIn';
 
@@ -12,8 +11,13 @@ export default function App() {
   return (
     <NativeBaseProvider theme = {THEME }>
 
-        {fontsLoad ? <SignIn/> : <Loading/>}
-        
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      {fontsLoad ? <SignIn/> : <Loading/>}
+
     </NativeBaseProvider>
   );
 }
