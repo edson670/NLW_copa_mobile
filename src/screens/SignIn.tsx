@@ -1,13 +1,15 @@
 import { Center, Text } from 'native-base'
 
+import Logo from '../assets/logo.svg'
+import { Button } from '../components/Button'
+
 export function SignIn(){
     return(
         <Center flex={1} bgColor="gray.900">
-        <Text color="white" fontSize={24} fontFamily="heading">
-          Signin
-        </Text>
-        
-      </Center>
+          <Logo width={212} height={40}/>
+
+          <Button title='ENTRAR COM GOOGLE'/>
+        </Center>
     
     )
        
