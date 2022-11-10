@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext, ReactNode } from 'react'
 
 interface UserProps {
     name: string
@@ -10,5 +10,27 @@ export interface AuthContexDataProps {
     signIn: () => Promise<void>
 }
 
-export const AuthContext = createContext({})
+interface AuthProviderProps {
+    children: ReactNode
+}
 
+export const AuthContext = createContext({} as AuthContexDataProps)
+
+export function AuthContextProvider ({ children }: AuthProviderProps){
+
+    async function signIn() {
+        console.log('entrou')
+     }
+
+    return (
+        <AuthContext.Provider value={{
+            signIn,
+            user : {
+                name: 'Rodrigo',
+                avatarUrl : 'https://github.com/edson670.png'
+            }
+        }}>
+            { children }
+        </AuthContext.Provider>
+    )
+}
